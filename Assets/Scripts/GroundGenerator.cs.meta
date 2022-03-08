@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 31fbe9f1448deba47bdbe579582d6199
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - camera_main: {fileID: 7003569831592268703, guid: 84ed8c4dd78211143ade4bbe760d50cb, type: 3}
+  - start_point: {fileID: 7970570864411287413, guid: 58907fe3f3fbc8642a36dbbadfd36d3e, type: 3}
+  - tile_prefab: {fileID: 2730262774392931565, guid: e6b7ff0b8d37b7b4e8c72872c4efc280, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
