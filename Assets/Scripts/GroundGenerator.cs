@@ -22,8 +22,8 @@ public class GroundGenerator : MonoBehaviour
 
     List<PlatformTile> spawned_tiles = new List<PlatformTile>(); // list containing all current activated tiles
     [HideInInspector] // hides vars from inspector view
-    public bool gameOver = false;
-    static bool gameStarted = false;
+    public bool game_over = false;
+    static bool game_started = false;
     float score = 0;
     float time_survived = 0; //times how long player has lived
     bool timer_running = false; //flag indicating if timer is running
@@ -73,7 +73,7 @@ public class GroundGenerator : MonoBehaviour
     {
         // Move the object upward in world space x unit/second.
         //Increase speed the higher score we get
-        if (!gameOver && gameStarted)
+        if (!game_over && game_started)
         {
             //the tiles are moving down the z axis (behind the camera, towards negative)
             transform.Translate(-spawned_tiles[0].transform.forward * Time.deltaTime * (mov_speed + (score / 500)), Space.World);
@@ -94,11 +94,11 @@ public class GroundGenerator : MonoBehaviour
             spawned_tiles.Add(tile_temp);
         }
 
-        if (gameOver || !gameStarted)
+        if (game_over || !game_started)
         {
             if (Input.GetKeyDown(KeyCode.Space))// press space to start game
             {
-                if (gameOver)
+                if (game_over)
                 {
                     //Restart current scene
                     Scene scene = SceneManager.GetActiveScene();
@@ -107,7 +107,7 @@ public class GroundGenerator : MonoBehaviour
                 else
                 {
                     //Start the game
-                    gameStarted = true;
+                    game_started = true;
                 }
             }
         }
@@ -136,13 +136,13 @@ public class GroundGenerator : MonoBehaviour
 
     void OnGUI()
     {
-        if (gameOver)
+        if (game_over)
         {
-            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 450, 300), "Game Over\nYour score is: " + ((int)score) + "\nPress 'Space' to restart");
+            GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 450, 300), "Game Over\nYour score is: " + ((int)score) + "\nPress 'Space' to restart", gui_style);
         }
         else
         {
-            if (!gameStarted)
+            if (!game_started)
             {
                 GUI.Label(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 450, 300), "Press 'Space' to start", gui_style);
             }
